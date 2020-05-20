@@ -1,5 +1,6 @@
 
 // ref: https://umijs.org/config/
+import path from 'path'
 export default {
   treeShaking: true,
   // routes: [
@@ -35,6 +36,6 @@ export default {
     }],
   ],
   alias: {
-    '@': "src/",
+    '@': path.join(__dirname, 'src/'),
   }
 }
