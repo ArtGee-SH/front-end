@@ -1,0 +1,25 @@
+
+.cmpt_tab_filters {
+
+  .filter_item{
+
+  }
+
+  :global{
+    .filter-item{
+      position: relative;
+      cursor: pointer;
+    }
+    .active::after{
+      content: ' ';
+      position: absolute;
+      top: 0;
+      color: red;
+      left: 50%;
+      transform: translateX(-50%) rotate(45deg);
+      height: 100%;
+      width: 2px;
+      background: #00FF00;
+    }
+  }
+}

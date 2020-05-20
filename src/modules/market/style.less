@@ -1,0 +1,38 @@
+
+.mod_market{
+
+  .types_wrapper{
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    color: #3B3B3B;
+  }
+  .sorts_wrapper{
+    margin-top: 28px;
+    font-size: 16px;
+  }
+
+}
+.types_wrapper{
+  :global{
+    .filter-item{
+      color: #3B3B3B;
+      display: inline-block;
+    }
+    .filter-item + .filter-item{
+    margin-left: 48px;
+
+    }
+  }
+}
+.sorts_wrapper{
+  :global{
+    .filter-item{
+
+    }
+    .filter-item + .filter-item{
+      margin-left: 48px;
+
+      }
+  }
+}
