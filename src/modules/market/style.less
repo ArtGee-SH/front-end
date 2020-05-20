@@ -1,38 +1,32 @@
+@import '~@/const/theme.less';
 
-.mod_market{
-
-  .types_wrapper{
+.mod_market {
+  .types_wrapper {
     display: flex;
     align-items: center;
-    font-size: 20px;
-    color: #3B3B3B;
+    font-size: 20 * @px_base;
+    color: #3b3b3b;
   }
-  .sorts_wrapper{
-    margin-top: 28px;
-    font-size: 16px;
+  .sorts_wrapper {
+    margin-top: 28 * @px_base;
+    font-size: 16 * @px_base;
   }
-
 }
-.types_wrapper{
-  :global{
-    .filter-item{
-      color: #3B3B3B;
+.types_wrapper {
+  :global {
+    .filter-item {
+      color: #3b3b3b;
       display: inline-block;
     }
-    .filter-item + .filter-item{
-    margin-left: 48px;
-
+    .filter-item + .filter-item {
+      margin-left: 48 * @px_base;
     }
   }
 }
-.sorts_wrapper{
-  :global{
-    .filter-item{
-
+.sorts_wrapper {
+  :global {
+    .filter-item + .filter-item {
+      margin-left: 48 * @px_base;
     }
-    .filter-item + .filter-item{
-      margin-left: 48px;
-
-      }
   }
 }
