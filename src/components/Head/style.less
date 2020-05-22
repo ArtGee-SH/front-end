@@ -2,17 +2,21 @@
 @import "~@/const/theme.less";
 
 .head_wrapper {
-  padding: 40 * @px_base 120 * @px_base 26 * @px_base;
-  background: #FFFFFF;
-  box-shadow: 0 5px 17px 0 #F2F2F2;
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
+
   box-sizing: border-box;
   position: sticky;
   top: 0;
   z-index: 1;
+  .header_wrapper{
+    padding: 40 * @px_base 120 * @px_base 26 * @px_base;
+    background: #FFFFFF;
+    box-shadow: 0 5px 17px 0 #F2F2F2;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+  }
   .tabs_wrapper{
     display: flex;
     align-items: center;
