@@ -1,27 +1,17 @@
 // import  useApi from '@/hooks/useApi';
-import { useCallback } from 'react';
-import {
-  isWeb3Injected,
-  // web3Accounts,
-  web3Enable,
-  // web3FromAddress
-} from '@polkadot/extension-dapp';
+import { useCallback, useContext } from 'react';
 
+import { Web3InjectContext } from '@/context/web3inject';
 import styles from './style.less'
 
 const ConnectionPolkadotNotice = () => {
   // const { isApiConnected, isWaitingInjected } = useApi();
 
-  const init = useCallback(async () => {
-    const result = await web3Enable('polkadot-js/apps');
-    console.log('authried', result)
-  }, []);
-
-  console.log('isWeb3Injected', isWeb3Injected);
-  if (!isWeb3Injected) {
+  const web3injectCtx = useContext(Web3InjectContext);
+  if (!web3injectCtx.isInjected) {
     return <div className={styles.notice}>请安装或启用插件</div>;
-  } else {
-    init();
+  } else if(!web3injectCtx.isEnabled) {
+    return <div className={styles.notice}>请同意授权</div>;
   }
   return null;
 };

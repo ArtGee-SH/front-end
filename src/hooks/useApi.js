@@ -1,7 +1,8 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 // import { ApiContext } from '@polkadot/react-api';
+import { PolkadotContext } from '@/context/polkadot'
 
-const ApiContext = React.createContext()
-export default function useApi () {
-  return useContext(ApiContext);
+
+export default () => {
+  return useContext(PolkadotContext).api
 }
