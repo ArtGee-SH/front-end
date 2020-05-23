@@ -17,6 +17,7 @@ export const AccountsContext = React.createContext({});
 export const AccountsProvider = ({ children }) => {
 
   const [accounts, updateAccounts] = useState([]);
+  const [accountsLoaded, updateAccountsLoaded] = useState(false);
 
   const polkadotCtx = useContext(PolkadotContext);
   const web3Ctx = useContext(Web3InjectContext);
@@ -35,10 +36,12 @@ export const AccountsProvider = ({ children }) => {
             }
           }
         });
+        console.log('injectedAccounts', injectedAccounts)
         updateAccounts(injectedAccounts);
-        // polkadotCtx.keyring.loadAll({
-        //     isDevelopment: true
-        // }, injectedAccounts);
+        polkadotCtx.keyring.loadAll({
+            isDevelopment: true
+        }, injectedAccounts);
+        updateAccountsLoaded(true);
       }
     }
 
@@ -51,10 +54,12 @@ export const AccountsProvider = ({ children }) => {
   }, [web3Ctx.isEnabled, polkadotCtx.keyring]);
 
 
-
+  const _context = useMemo(() => {
+    return { accounts , accountsLoaded }
+  }, [accounts, accountsLoaded])
 
   return (
-    <AccountsContext.Provider value={useMemo(() => accounts, [accounts])}>
+    <AccountsContext.Provider value={_context}>
       {children}
     </AccountsContext.Provider>
   );

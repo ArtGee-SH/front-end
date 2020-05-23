@@ -2,14 +2,18 @@ import { useEffect, useState, useContext, useCallback } from 'react';
 
 import Pagination from '@material-ui/lab/Pagination';
 
+
 import TabFilters from '@/components/TabFilters';
 import CardItem from '@/components/CardItem';
+
+
 
 // import keyring from '@polkadot/ui-keyring';
 
 import { PolkadotContext } from '@/context/polkadot';
 
 import styles from './style.less';
+import useApi from '../../hooks/useApi';
 
 const TYPES = [
   {
@@ -56,6 +60,7 @@ const sliceData = (arr, len) => {
 
 const Market = () => {
   const data = [...dataSource];
+  const api = useApi()
 
   const completeRow = useCallback((_row) => {
     const _len = _row.length;
@@ -68,6 +73,14 @@ const Market = () => {
       })
     }
   }, []);
+
+  useEffect(() => {
+    if(api) {
+      api.rpc.chain.subscribeNewHeads((lastHeader) => {
+        console.log(`last block #${lastHeader.number} has hash ${lastHeader.hash}`);
+      });
+    }
+  }, [api]);
 
   return (
     <div className={styles.mod_market}>
