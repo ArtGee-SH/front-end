@@ -5,6 +5,7 @@ import router from 'umi/router';
 
 import ConnectionPolkadotNotice from '@/components/ConnectionPolkadotNotice';
 
+import Logo from '@/assets/logo.png';
 
 import styles from './style.less';
 
@@ -53,7 +54,9 @@ const Head = () => {
     <div className={styles.head_wrapper}>
       <ConnectionPolkadotNotice />
       <div className={styles.header_wrapper}>
-        <div>banner</div>
+        <div>
+          <img src={Logo}  className={styles.logo} />
+        </div>
         <div className={styles.tabs_wrapper}>
           {Tabs.map(tab => {
             return (

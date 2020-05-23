@@ -37,7 +37,7 @@ const dataSource = new Array(23).fill(1).map((v, idx) => {
   return {
     id: idx,
     owner: 'asdfasdf',
-    image: 'http://img0.imgtn.bdimg.com/it/u=1594910827,1412095439&fm=26&gp=0.jpg',
+    image: 'http://img2.imgtn.bdimg.com/it/u=705534832,2601567304&fm=26&gp=0.jpg',
   };
 });
 
