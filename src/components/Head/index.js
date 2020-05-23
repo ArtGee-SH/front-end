@@ -1,4 +1,10 @@
+
+import { useCallback } from 'react';
+import router from 'umi/router';
+
+
 import ConnectionPolkadotNotice from '@/components/ConnectionPolkadotNotice';
+
 
 import styles from './style.less';
 
@@ -36,6 +42,13 @@ const Tabs = [
 ];
 
 const Head = () => {
+
+  const goPage = useCallback((e) => {
+    const url = (e.target.dataset || {}).url;
+    if(url) {
+      router.push(url);
+    }
+  }, []);
   return (
     <div className={styles.head_wrapper}>
       <ConnectionPolkadotNotice />
@@ -44,7 +57,7 @@ const Head = () => {
         <div className={styles.tabs_wrapper}>
           {Tabs.map(tab => {
             return (
-              <div className={styles.tab} key={tab.code}>
+              <div className={styles.tab} data-url={tab.url} onClick={goPage} key={tab.code}>
                 {tab.name}
               </div>
             );
