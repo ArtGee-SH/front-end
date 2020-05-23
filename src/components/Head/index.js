@@ -27,8 +27,8 @@ const Tabs = [
   },
   {
     name: '名录',
-    url: '/list',
-    code: 'list',
+    url: '/directory',
+    code: 'directory',
   },
   {
     name: '注册',

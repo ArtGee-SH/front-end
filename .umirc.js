@@ -37,5 +37,6 @@ export default {
   ],
   alias: {
     '@': path.join(__dirname, 'src/'),
+    '@theme': path.join(__dirname, 'src/const/theme.less'),
   }
 }

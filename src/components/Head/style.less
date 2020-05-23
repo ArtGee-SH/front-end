@@ -1,5 +1,5 @@
 
-@import "~@/const/theme.less";
+@import "~@theme";
 
 .head_wrapper {
 
@@ -8,11 +8,12 @@
   top: 0;
   z-index: 1;
   .logo{
-    width: 200px;
-    height: auto;
+    // width: 200px;
+    height: 56 * @px_base;
+    width: auto;
   }
   .header_wrapper{
-    padding: 40 * @px_base 120 * @px_base 26 * @px_base;
+    padding: 30 * @px_base 120 * @px_base 18 * @px_base;
     background: #FFFFFF;
     box-shadow: 0 5px 17px 0 #F2F2F2;
     display: flex;

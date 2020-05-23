@@ -1,7 +1,11 @@
 import { useEffect, useState, useContext, useCallback } from 'react';
+
+import Pagination from '@material-ui/lab/Pagination';
+
 import TabFilters from '@/components/TabFilters';
 import CardItem from '@/components/CardItem';
-import keyring from '@polkadot/ui-keyring';
+
+// import keyring from '@polkadot/ui-keyring';
 
 import { PolkadotContext } from '@/context/polkadot';
 
@@ -86,6 +90,9 @@ const Market = () => {
             </div>
           );
         })}
+      </div>
+      <div className={styles.pagination}>
+        <Pagination count={10} showFirstButton showLastButton />
       </div>
     </div>
   );

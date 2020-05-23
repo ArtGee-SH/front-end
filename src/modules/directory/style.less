@@ -1,0 +1,29 @@
+
+@import "~@theme";
+
+.mod_directory {
+
+  .tab_filters{
+    display: flex;
+    font-family: PingFangSC-Thin;
+    font-size: 34px;
+    justify-content: center;
+    :global{
+      .active{
+        font-family: PingFangSC-Semibold;
+        color: #212121;
+      }
+      .filter-item + .filter-item{
+        margin-left: 200 * @px_base;
+      }
+
+    }
+  }
+  .list_wrapper{
+    margin-top: 75px;
+  }
+
+  .list_item{
+    margin-bottom: 24px;
+  }
+}

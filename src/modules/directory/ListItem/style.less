@@ -1,0 +1,60 @@
+@import "~@theme";
+.cmpt_list_item{
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: space-between;
+  display: flex;
+  padding: 37 * @px_base 40 * @px_base;
+  box-shadow: 0 7px 20px 1px #E6EAF2;
+  border-radius: 8px;
+
+  .detail{
+    display: flex;
+    width: 80%;
+    justify-content: flex-end;
+    align-items: center;
+
+  }
+  .info {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+  }
+
+}
+
+.detail {
+  .col {
+    width: 20%;
+  }
+  .col_title{
+    font-family: PingFangSC-Regular;
+    font-size: 14 * @px_base;
+    color: #666666;
+    margin-bottom: 4px;
+  }
+  .col_val{
+    font-family: PingFangSC-Semibold;
+    font-size: 20 * @px_base;
+    color: #3B3B3B;
+  }
+}
+
+.info{
+  .info_title{
+    font-family: PingFangSC-Semibold;
+    font-size: 24 * @px_base;
+    color: #3B3B3B;
+    margin-bottom: 4px;
+  }
+  .info_more{
+    font-family: PingFangSC-Regular;
+    font-size: 18 * @px_base;
+    color: #666666;
+  }
+  .info_thumbnail{
+    height: 74 * @px_base;
+    width: 74 * @px_base;
+    margin-right: 20px;
+  }
+}
