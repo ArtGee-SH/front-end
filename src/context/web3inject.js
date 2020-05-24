@@ -23,13 +23,14 @@ export const Web3InjectProvider = ({children}) => {
     async function init () {
       if(isWeb3Injected) {
         updateIsInjected(true);
-        const result = await web3Enable('polkadot-js/apps');
-        const source = 'polkadot-js';
-        const found = source && result.find(({ name }) => name === source);
-        console.log('found', found);
+        const result = await web3Enable('cryptoindus-front-end');
+        console.log('result', result);
+        // const source = 'polkadot-js';
+        // const found = source && result.find(({ name }) => name === source);
+        // console.log('found', found);
         if(result) {
           updateIsEnabled(true);
-          updateProvider(found.provider);
+          // updateProvider(found.provider);
         }
       }
     }
