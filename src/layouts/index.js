@@ -21,7 +21,7 @@ function BasicLayout(props) {
           <AccountsProvider>
             <BalanceProvider>
               <div className={styles.app_wrapper}>
-                <Head />
+                <Head {...props} />
                 <div className={`${styles.app_body} ${_withoutPaddingTop ? styles.app_body_padding_top0: ''}`}>{props.children}</div>
               </div>
             </BalanceProvider>

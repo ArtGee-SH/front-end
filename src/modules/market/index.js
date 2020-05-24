@@ -11,9 +11,12 @@ import CardItem from '@/components/CardItem';
 // import keyring from '@polkadot/ui-keyring';
 
 import { PolkadotContext } from '@/context/polkadot';
+import { AccountsContext } from '@/context/accounts';
+
+import useApi from '../../hooks/useApi';
+import { getRandomImage } from '@/utils/tools'
 
 import styles from './style.less';
-import useApi from '../../hooks/useApi';
 
 const TYPES = [
   {
@@ -45,7 +48,7 @@ const dataSource = new Array(23).fill(1).map((v, idx) => {
   return {
     id: idx,
     owner: 'asdfasdf',
-    image: 'http://img2.imgtn.bdimg.com/it/u=705534832,2601567304&fm=26&gp=0.jpg',
+    image: getRandomImage(),
   };
 });
 
@@ -60,6 +63,8 @@ const sliceData = (arr, len) => {
 
 const Market = () => {
   const data = [...dataSource];
+  const { keyring } = useContext(PolkadotContext);
+  const { accountsLoaded } = useContext(AccountsContext);
   const api = useApi()
 
   const completeRow = useCallback((_row) => {
@@ -75,12 +80,31 @@ const Market = () => {
   }, []);
 
   useEffect(() => {
-    if(api) {
+    if(api && accountsLoaded) {
       api.rpc.chain.subscribeNewHeads((lastHeader) => {
         console.log(`last block #${lastHeader.number} has hash ${lastHeader.hash}`);
       });
+      // test
+      async function main() {
+        console.log('start -transfer')
+        const fromPair = keyring.getPair('5FLSigC9HGRKVhB9FiEo4Y3koPsNmBmLJbpXg2mp1hXcS59Y');
+        api.tx.balances
+            .transfer('5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty', 123456789)
+            .signAndSend(fromPair, ({ status }) => {
+                if (status.isFinalized) {
+                console.log(`Completed at block hash #${status.asFinalized.toString()}`);
+                } else {
+                  console.log(`Current transfer status: ${status.type}`);
+                }
+            }).catch((e) => {
+                console.log(':( transaction failed');
+                console.error('ERROR:', e);
+            });
+      }
+      main();
+
     }
-  }, [api]);
+  }, [api, accountsLoaded]);
 
   return (
     <div className={styles.mod_market}>
