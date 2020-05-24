@@ -6,7 +6,15 @@ import Head from '@/components/Head';
 
 import styles from './index.less';
 
+const pathesWithoutPaddingTop = ['/'];
+
 function BasicLayout(props) {
+
+  const { pathname } = props.location;
+
+  const _withoutPaddingTop = pathesWithoutPaddingTop.some(v => v === pathname);
+  console.log('props', props);
+
   return (
     <Web3InjectProvider>
         <PolkadotProvider>
@@ -14,7 +22,7 @@ function BasicLayout(props) {
             <BalanceProvider>
               <div className={styles.app_wrapper}>
                 <Head />
-                <div className={styles.app_body}>{props.children}</div>
+                <div className={`${styles.app_body} ${_withoutPaddingTop ? styles.app_body_padding_top0: ''}`}>{props.children}</div>
               </div>
             </BalanceProvider>
           </AccountsProvider>

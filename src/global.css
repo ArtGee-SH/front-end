@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'A-font';
+  src: url('./assets/ZiTiQuanXinYiGuanHeiTi2.0-2.ttf');
+}
+
 html, body, #root {
   height: 100%;
 }

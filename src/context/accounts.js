@@ -38,10 +38,10 @@ export const AccountsProvider = ({ children }) => {
         });
         console.log('injectedAccounts', injectedAccounts)
         updateAccounts(injectedAccounts);
-        polkadotCtx.keyring.loadAll({
-            isDevelopment: true
-        }, injectedAccounts);
-        updateAccountsLoaded(true);
+        // polkadotCtx.keyring.loadAll({
+        //     isDevelopment: true
+        // }, injectedAccounts);
+        // updateAccountsLoaded(true);
       }
     }
 

@@ -1,0 +1,105 @@
+@import "~@theme";
+
+.mod_home {
+  .row{
+    margin-bottom: 120 * @px_base;
+  }
+  .row_title{
+    font-family: PingFangSC-Ultralight;
+    font-size: 40 * @px_base;
+    color: #212121;
+  }
+  .banner{
+    // height: 38.12vw;
+    width: 100vw;
+    position: relative;
+    padding-bottom: 34%;
+    // min-height: 400px;
+    background-size: 25%, contain;
+    background-position: 45% 45%, 100% 100%;
+    background-repeat: no-repeat, no-repeat;
+    // margin-left: -90px;
+    background-image: url('../../assets/banner_2.png'),url('../../assets/home_banner.png');
+  }
+  .banner_title{
+    position: absolute;
+    // width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    // top: 52.5px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: A-font;
+    font-size: 100 * @px_base;
+    color: #111111;
+    padding: 89 * @px_base 120 * @px_base 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .banner_tip{
+    font-family: PingFangSC-Regular;
+    font-size: 22 * @px_base;
+    color: #090909;
+    position: relative;
+    margin-top: 65 * @px_base;
+    padding:0 40 * @px_base;
+    display: inline-block;
+    &::after{
+      content: '';
+      width: 100%;
+      height: 0;
+      position: absolute;
+      left: 0;
+      bottom: -15px;
+      border: 4px solid #00FF00;
+      box-shadow: 0 10px 8px 0 #00FF00;
+    }
+  }
+  .give::after{
+    border: 4px solid #CACACA;
+    box-shadow: 0 10px 8px 0 #CECECE;
+  }
+  .content{
+    max-width: 1200px;
+    padding: 89 * @px_base 120 * @px_base ;
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+  .row_sub{
+    text-align: center;
+  }
+
+  .subscribe{
+    // padding: 2px 4px;
+    display: flex;
+    align-items: 'center';
+    width: 400px;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-top: 15 * @px_base;
+  }
+
+
+  .input {
+    margin-left: 1em;
+    flex: 1;
+    padding-left: 14 * @px_base;
+  }
+  .iconButton {
+    padding: 10 * @px_base;
+  }
+  .divider {
+    height: 28 * @px_base;
+    margin: 4px;
+  }
+  .addon{
+    background: #212421;
+    color: white;
+    display: inline-block;
+    width: 186 * @px_base;
+    height: 73 * @px_base;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

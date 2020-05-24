@@ -1,0 +1,61 @@
+@import "~@theme";
+
+.info_block{
+
+  .info_content_wrapper{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .part_info{
+    width: 50%;
+  }
+  .info_title{
+    font-family: PingFangSC-Semibold;
+    font-size: 40 * @px_base;
+    color: #212121;
+    margin-bottom: 24 * @px_base;
+  }
+  .info_content{
+    font-family: PingFangSC-Ultralight;
+    font-size: 30 * @px_base;
+    color: #212121;
+  }
+  .info_btns{
+    margin-top: 71 * @px_base;
+    font-family: PingFangSC-Regular;
+    font-size: 22px;
+    color: #090909;
+    line-height: 31px;
+  }
+  .info_btn + .info_btn{
+    margin-left:  84 * @px_base;
+  }
+  .info_btn{
+    // width: 200 * @px_base;
+    box-sizing: border-box;
+    position: relative;
+    padding:0 40px;
+    display: inline-block;
+    font-family: PingFangSC-Regular;
+    font-size: 22 * @px_base;
+    color: #090909;
+    line-height: 31px;
+    &::after{
+      content: '';
+      width: 100%;
+      height: 0;
+      position: absolute;
+      left: 0;
+      bottom: -15px;
+      border: 4px solid #00FF00;
+      box-shadow: 0 10px 8px 0 #00FF00;
+    }
+  }
+  .img{
+    height: 343 * @px_base;
+    width: auto;
+  }
+}
