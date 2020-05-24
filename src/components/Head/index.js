@@ -1,5 +1,6 @@
 
-import { useCallback } from 'react';
+import { useCallback, useState, useEffect } from 'react';
+import classnames from 'classnames';
 import router from 'umi/router';
 
 
@@ -42,8 +43,17 @@ const Tabs = [
   },
 ];
 
-const Head = () => {
+const Head = (props) => {
 
+  const { pathname } = props.location
+  const [curtab, updateCurTab] = useState('');
+
+  useEffect(() => {
+    const _curTab = Tabs.filter(v => v.url && v.url === pathname);
+    if(_curTab.length){
+      updateCurTab(_curTab[0].code)
+    }
+  }, [pathname])
   const goPage = useCallback((e) => {
     const url = (e.target.dataset || {}).url;
     if(url) {
@@ -55,12 +65,17 @@ const Head = () => {
       <ConnectionPolkadotNotice />
       <div className={styles.header_wrapper}>
         <div>
-          <img src={Logo}  className={styles.logo} />
+          <img src={Logo}  alt="" className={styles.logo} />
         </div>
         <div className={styles.tabs_wrapper}>
           {Tabs.map(tab => {
             return (
-              <div className={styles.tab} data-url={tab.url} onClick={goPage} key={tab.code}>
+              <div
+                className={classnames(styles.tab, curtab === tab.code ? styles.active_tab : '')}
+                data-url={tab.url}
+                onClick={goPage}
+                key={tab.code}
+              >
                 {tab.name}
               </div>
             );
