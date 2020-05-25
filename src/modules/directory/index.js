@@ -1,4 +1,6 @@
 
+import { useCallback } from 'react';
+import router from 'umi/router';
 
 import Pagination from '@/components/Pagination';
 import TabFilters  from '@/components/TabFilters';
@@ -17,7 +19,15 @@ const Filters = [{
 
 const ModuleDirectory = () => {
 
-  const list = new Array(10).fill(1).map((v, idx) => idx);
+  const list = new Array(10).fill(1).map((v, idx) => {
+    return {
+      id: idx,
+    }
+  });
+
+  const goDirectoryDetail = useCallback((e, item) => {
+    router.push(`/directory/${item.id}`);
+  }, []);
 
   return (
     <div className={styles.mod_directory}>
@@ -25,7 +35,7 @@ const ModuleDirectory = () => {
       <div className={styles.list_wrapper}>
         {list.map(li => {
           return (
-            <ListItem item={li} key={li.id} className={styles.list_item} />
+            <ListItem onClick={goDirectoryDetail} item={li} key={li.id} className={styles.list_item} />
           );
         })}
       </div>

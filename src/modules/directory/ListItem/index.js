@@ -1,4 +1,5 @@
 
+import { useCallback } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 
 
@@ -7,11 +8,17 @@ import classnames from 'classnames';
 
 import styles from './style.less';
 
-const CmptListItem = ({ item, className }) => {
+const CmptListItem = ({ item, className, onClick = () => {} }) => {
 
   const _clas = classnames(styles.cmpt_list_item, className || '');
+
+  const _onClick = useCallback((e) => {
+    e.persist();
+    onClick(e, item);
+  }, []);
+
   return (
-    <div className={_clas}>
+    <div className={_clas} onClick={_onClick}>
       <div className={styles.info}>
         <div>
           <Avatar className={styles.info_thumbnail} variant="rounded" alt="Remy Sharp" src="https://dss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3932596478,3048748214&fm=26&gp=0.jpg" />
