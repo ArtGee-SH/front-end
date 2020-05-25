@@ -61,7 +61,7 @@ const Head = (props) => {
     }
   }, []);
   return (
-    <div className={styles.head_wrapper}>
+    <div id="app_head" className={styles.head_wrapper}>
       <ConnectionPolkadotNotice />
       <div className={styles.header_wrapper}>
         <div>

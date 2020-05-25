@@ -2,7 +2,7 @@ import styles from './style.less';
 
 const Foot = () => {
   return (
-    <div className={styles.cmpt_foot}>
+    <div id="app_foot" className={styles.cmpt_foot}>
       <div className={styles.app_info}>
         <div className={styles.app_name}>CRYPTOINDUS</div>
         <div className={styles.app_com}>
