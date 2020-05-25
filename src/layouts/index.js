@@ -3,6 +3,7 @@ import { PolkadotProvider } from '@/context/polkadot';
 import { AccountsProvider } from '@/context/accounts';
 import { BalanceProvider } from '@/context/balance';
 import Head from '@/components/Head';
+import Foot from '@/components/Foot';
 
 import styles from './index.less';
 
@@ -23,6 +24,7 @@ function BasicLayout(props) {
               <div className={styles.app_wrapper}>
                 <Head {...props} />
                 <div className={`${styles.app_body} ${_withoutPaddingTop ? styles.app_body_padding_top0: ''}`}>{props.children}</div>
+                <Foot />
               </div>
             </BalanceProvider>
           </AccountsProvider>
