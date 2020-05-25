@@ -6,6 +6,7 @@ import CardItem from '@/components/CardItem';
 import { getRandomImage } from '@/utils/tools';
 
 import styles from './style.less';
+import { useMemo } from 'react';
 
 const Filters = [
   {
@@ -18,16 +19,32 @@ const Filters = [
   },
 ];
 
-const list = new Array(3).fill(1).map((v, idx) => {
-  return {
-    id: idx,
-    owner: 'asdfasdf',
-    image: getRandomImage(),
-  };
-});
+
 
 const ModDirectoryDetail = () => {
   const imageUrl = getRandomImage();
+
+  const list = new Array(1).fill(1).map((v, idx) => {
+    return {
+      id: idx,
+      owner: 'asdfasdf',
+      image: getRandomImage(),
+    };
+  });
+  const hasMore = list.length > 3;
+
+  const MoreBtn = useMemo(() => {
+    if(!hasMore) {
+      return null;
+    }
+    return (
+      <div className="flex-center">
+        <Button variant="contained" color="default" className={styles.more_btn}>
+          查看更多
+        </Button>
+      </div>
+    );
+  }, [hasMore]);
   return (
     <div className={styles.mod_directory_detail}>
       <div className={styles.info_row}>
@@ -60,17 +77,15 @@ const ModDirectoryDetail = () => {
         <TabFilters value="b" items={Filters} className={styles.tab_filters} />
         <div className={styles.list_wrapper}>
           {list.map(li => {
-            return <div className={styles.list_item} key={li.id}>
-              <CardItem info={li} className={styles.card_item}  />
+            return (
+              <div className={styles.list_item} key={li.id}>
+                <CardItem info={li} className={styles.card_item} />
               </div>
+            );
           })}
         </div>
       </div>
-      <div className="flex-center">
-      <Button variant="contained" color="default" className={styles.more_btn}>
-        查看更多
-      </Button>
-      </div>
+      {MoreBtn}
     </div>
   );
 };
