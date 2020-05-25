@@ -11,23 +11,30 @@
       position: relative;
       cursor: pointer;
     }
+    .small_filter.active::after{
+      background-image: url('../../assets/line_small.png')
+    }
+
+    .middle_filter.active::after{
+      background-image: url('../../assets/line_middle.png')
+    }
+    .large_filter.active::after{
+      background-image: url('../../assets/line_large.png')
+    }
     .active::after{
       content: ' ';
       position: absolute;
-      top: 0;
+      top: 50%;
       color: red;
       left: 50%;
-      transform: translateX(-50%) translateY(-20%) scale(0.8) rotate(36deg);
+      transform: translate(-50%, -50%);
       height: 200%;
-      max-width: 10px;
-      width: 10%;
-      opacity: 0.75;
-      background-image: linear-gradient(top, white 0%, #00FF00 10%, #00FF00 90%, white 100%);
-      background-image: -webkit-linear-gradient(top, white 0%, #00FF00 10%, #00FF00 90%, white 100%);
-      // background-repeat: no-repeat;
-      // background-image: url('../../assets/active_line.png');
-      // background: #00FF00;
-      // background: #00FF00;
+      width: 100%;
+      opacity: 0.85;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
     }
+
   }
 }

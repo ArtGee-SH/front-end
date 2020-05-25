@@ -5,7 +5,7 @@ import styles from './style.less';
 
 const noop = () => {};
 
-const TabFilters = ({ className, items, onChange = noop, value }) => {
+const TabFilters = ({ className, items, onChange = noop, value, size = 'middle'  }) => {
   const [activeFilter, updateActiveFilter] = useState(null);
 
   useEffect(() => {
@@ -21,6 +21,11 @@ const TabFilters = ({ className, items, onChange = noop, value }) => {
     },
     [items, onChange],
   );
+  const _lineClas = {
+    small: 'small_filter',
+    large: 'large_filter',
+    middle: 'middle_filter',
+  }
 
   const _wrapperClas = classnames(styles.cmpt_tab_filters, className);
   // const _itemClas = classnames(styles.filter_item, 'filter-item', )
@@ -30,7 +35,7 @@ const TabFilters = ({ className, items, onChange = noop, value }) => {
         return (
           <span
             data-filter={item.code}
-            className={`filter-item ${activeFilter === item.code ? 'active' : ''}`}
+            className={classnames( _lineClas[size], 'filter-item', activeFilter === item.code ? 'active' : '')}
             key={item.code}
             onClick={handleFilterClick}
           >
