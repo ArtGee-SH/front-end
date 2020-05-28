@@ -14,7 +14,7 @@ export const BalanceProvider = ({ children }) => {
 
   useEffect(() => {
     let unsubscribeAll
-    if(apiReady && accountsLoaded ){
+    if(false && apiReady && accountsLoaded ){
 
       const accounts = keyring.getPairs();
       const addresses = accounts.map(account => account.address);

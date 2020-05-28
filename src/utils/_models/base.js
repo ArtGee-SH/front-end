@@ -1,7 +1,7 @@
 export default {
 
   reducers: {
-    update({ payload }, state) {
+    update(state, { payload }) {
       return {
         ...state,
         ...payload,

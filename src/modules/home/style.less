@@ -14,17 +14,23 @@
     width: 100vw;
     position: relative;
     padding-bottom: 34%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    background-image: url('../../assets/banner.jpg');
     // min-height: 400px;
-    background-size: 25%, contain;
-    background-position: 45% 45%, 100% 100%;
-    background-repeat: no-repeat, no-repeat;
-    // margin-left: -90px;
-    background-image: url('../../assets/banner_2.png'),url('../../assets/home_banner.png');
+    // background-size: 25%, contain;
+    // background-position: 45% 45%, 100% 100%;
+    // background-repeat: no-repeat, no-repeat;
+    // // margin-left: -90px;
+    // background-image: url('../../assets/banner_2.png'),url('../../assets/home_banner.png');
   }
   .banner_title{
     position: absolute;
-    // width: 100%;
+    width: 100%;
+    bottom: 20%;
     max-width: 1200px;
+    padding: 89 * @px_base 120 * @px_base ;
     margin: 0 auto;
     // top: 52.5px;
     left: 50%;
@@ -33,17 +39,22 @@
     font-size: 100 * @px_base;
     color: #111111;
     padding: 89 * @px_base 120 * @px_base 0;
-    width: 100%;
+    // width: 100%;
     box-sizing: border-box;
   }
   .banner_tip{
+    position: absolute;
+    bottom: 25%;
+    left: 0;
     font-family: PingFangSC-Regular;
     font-size: 22 * @px_base;
     color: #090909;
-    position: relative;
+    transform: translateX(50%);
+    // position: relative;
     margin-top: 65 * @px_base;
     padding:0 40 * @px_base;
     display: inline-block;
+    // box-sizing: border-box;
     width: 8em;
     text-align: center;
     &::after{

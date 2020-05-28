@@ -1,5 +1,5 @@
 
-import  { shuffle } from 'lodash'
+import  { shuffle, keys } from 'lodash'
 
 const images = [
   'http://img0.imgtn.bdimg.com/it/u=2654247859,2161899795&fm=26&gp=0.jpg',
@@ -18,4 +18,29 @@ const images = [
 
 export const getRandomImage = () => {
   return shuffle(images)[0];
+}
+
+/**
+ * object to array
+ *
+ * @param   {[type]}  obj  [obj to resolve]
+ * @param   {[type]}  fn  [ resolve custom]
+ *
+ * @return  {[type]}       [return description]
+ */
+export const objectToArr = (obj, fn) => {
+  return keys(obj).reduce((result, cur) => {
+
+    return [...result, fn ? fn(cur, obj[cur]) : {
+      ...obj[cur],
+      __id: cur,
+    }]
+  }, []);
+}
+
+/**
+ * change hex to string;
+ */
+export const hexToStr = (num, radix = 16) => {
+  return Number(num).toString(radix);
 }

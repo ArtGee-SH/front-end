@@ -4,8 +4,9 @@ import { ApiPromise, WsProvider } from '@polkadot/api';
 import UiKeyring from '@polkadot/ui-keyring';
 
 import { Web3InjectContext } from '@/context/web3inject';
+import config from '@/config';
 
-  const WS_PROVIDER = 'wss://dev-node.substrate.dev:9944';
+  // const WS_PROVIDER = 'wss://dev-node.substrate.dev:9944';
 
 
 export const PolkadotContext = React.createContext({
@@ -28,11 +29,15 @@ export const PolkadotProvider = ({ children }) => {
     };
   }, [api, apiReady]);
   useEffect(() => {
-    if (web3injectCtx.provider && web3injectCtx.isEnabled && web3injectCtx.isInjected){
+    if (web3injectCtx.isEnabled && web3injectCtx.isInjected){
 
-      const provider = new WsProvider(WS_PROVIDER);
-
-      ApiPromise.create({ provider })
+      const provider = new WsProvider(config.WS_PROVIDER);
+      window.provider = provider;
+      ApiPromise.create({
+        provider,
+        types: config.TYPES,
+        rpc: config.RPCS,
+       })
         .then((apiIns) => {
           updateApi(apiIns);
           apiIns.isReady.then(() =>{

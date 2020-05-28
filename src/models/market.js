@@ -5,9 +5,9 @@ import ModelBase from '@/utils/_models/base';
 
 
 export default extend(ModelBase, {
-  namespace: 'app',
+  namespace: 'market',
   state: {
-
+    artvenues: [],
   },
   reducers: {
 

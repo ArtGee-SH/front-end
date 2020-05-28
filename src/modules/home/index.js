@@ -35,10 +35,11 @@ const ModHome = () => {
     <div className={styles.mod_home}>
       <div className={styles.banner}>
         <div className={styles.banner_title}>
-          <div>传统艺术是个别人的游戏</div>
-          <div>加密艺术是所有人的游戏</div>
+          {/* <div>传统艺术是个别人的游戏</div>
+          <div>加密艺术是所有人的游戏</div> */}
           <div className={styles.banner_tip}>即刻探索</div>
         </div>
+        {/* <div className={styles.banner_tip}>即刻探索</div> */}
       </div>
       <div className={styles.content}>
         <div className={styles.row}>{ListBlock(dataSourceReal, '实时交易')}</div>
