@@ -1,0 +1,115 @@
+
+
+@import '~@theme';
+
+.mod_apply{
+  position: relative;
+  padding-bottom: 120 * @px_base;
+  .banner{
+    height: 0;
+    padding-bottom: 217 * @px_base;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .apply_form_wrapper{
+    margin-top: 59 * @px_base;
+  }
+  label{
+    font-family: PingFangSC-Semibold;
+    font-size: 24 * @px_base;
+    color: #212121!important;
+    transform: scale(1);
+    // transform: translate(0, 24 * @px_base) scale(1);
+  }
+  input{
+    font-size:  24 * @px_base;
+  }
+  .sub_btn{
+    font-family: PingFangSC-Regular;
+    font-size: 22 * @px_base;
+    color: #090909;
+    line-height: 31px;
+    padding-left: 52 * @px_base;
+    padding-right: 52 * @px_base;
+  }
+  .btn_wrapper{
+    display: inline-block;
+  }
+}
+.form_row{
+  & + & {
+    margin-top: 50 * @px_base;
+  }
+  :global{
+    .MuiInput-formControl{
+      // margin-top: 30px;
+    }
+  }
+}
+
+.btn_wrapper{
+  margin-top: 29 * @px_base;
+}
+
+.upload_wrapper{
+  margin-top: 48 * @px_base;
+  input{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+}
+
+.upload_btn{
+  position: relative;
+
+  background: #FFFFFF;
+  box-shadow: 0 6px 13px 0 #E5E5E5;
+  border-radius: 2px;
+  border-radius: 2px;
+  padding: 10 * @px_base 36 * @px_base;
+  display: inline-block;
+  font-size: 16 * @px_base;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer!important;
+
+
+}
+.upload_icon{
+  width: 24 * @px_base !important;
+  height: 24 * @px_base !important;
+}
+
+
+.radio_wrapper{
+  margin-top: 48 * @px_base;
+  padding-left: 27 * @px_base;
+
+  :global{
+    .Mui-checked {
+      background-image: url('../../assets/checked@2x.png')!important;
+
+    }
+    .MuiRadio-root{
+      background-size: cover;
+      background-position: center;
+      background-origin: border-box;
+      background-image: url('../../assets/unchecked@2x.png');
+      margin-right: 27 * @px_base;
+    }
+    .MuiFormControlLabel-root{
+      margin-left: 0!important;
+    }
+    .MuiFormControlLabel-label{
+      font-family: PingFangSC-Semibold;
+      font-size: 18 * @px_base;
+      color: #212121;
+    }
+  }
+}

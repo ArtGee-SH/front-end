@@ -21,3 +21,22 @@
     max-width: 100%!important;
   }
 }
+
+:global{
+  .app_btn{
+    position: relative;
+    display: inline;
+    text-align: center;
+    cursor: pointer;
+    &::after{
+      content: '';
+      width: 100%;
+      height: 0;
+      position: absolute;
+      left: 0;
+      bottom: -15px;
+      border: 4px solid #00FF00;
+      box-shadow: 0 10px 8px 0 #00FF00;
+    }
+  }
+}
