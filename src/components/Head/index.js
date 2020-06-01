@@ -33,8 +33,8 @@ const Tabs = [
   },
   {
     name: '注册',
-    url: '/signup',
-    code: 'signup',
+    url: '/wallet',
+    code: 'wallet',
   },
   {
     name: '中/En',
