@@ -1,0 +1,23 @@
+@import "~@theme";
+
+
+.cmpt_list{
+  .list_row{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    font-family: PingFangSC-Regular;
+    font-size: 12px;
+    color: #212121;
+  }
+
+  .avatar{
+    width: 36 * @px_base;
+    height: 36 * @px_base;
+    margin-right: 8px;
+  }
+}
+.list_row + .list_row{
+  margin-top: 8px;
+}
