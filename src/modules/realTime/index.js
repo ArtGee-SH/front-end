@@ -12,7 +12,7 @@ import styles from './style.less';
 const ModRealTime = () => {
 
 
-  const UserList = new Array(8).fill(1).map(i => {
+  const UserList = new Array(4).fill(1).map(i => {
     return {
       id: uuidv4(),
       name: uuidv4().slice(2,8),
