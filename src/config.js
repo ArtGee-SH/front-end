@@ -1,7 +1,7 @@
 
 
 export default {
-  WS_PROVIDER: 'wss://cryptoindus.xyz/',
+  WS_PROVIDER: 'wss://ws.cryptoindus.xyz/',
 
   TYPES : {
     "ArtistId": "u32",
