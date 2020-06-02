@@ -12,6 +12,12 @@ const TabFilters = ({ className, items, onChange = noop, value, size = 'middle' 
     updateActiveFilter(value || null)
   }, []);
 
+  useEffect(() => {
+    if(value !== activeFilter) {
+      updateActiveFilter(value);
+    }
+  }, [value, activeFilter]);
+
   const handleFilterClick = useCallback(
     e => {
       const filterCode = e.target.dataset.filter;

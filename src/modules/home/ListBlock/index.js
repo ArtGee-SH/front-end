@@ -1,12 +1,21 @@
 
+import { useCallback } from 'react';
+import router from 'umi/router';
 
 import CardItem from '@/components/CardItem';
+
 
 import styles from './style.less';
 
 
-const ListBlock = (list, title) => {
+const ListBlock = (list, title, link) => {
 
+  const goLink = useCallback((e)=>{
+    const { link } = e.target.dataset;
+    if(link) {
+      router.push(link)
+    }
+  }, []);
   return (
     <div className={styles.list_block}>
         <div className={styles.list_title}>{title}</div>
@@ -18,7 +27,7 @@ const ListBlock = (list, title) => {
           })}
         </div>
         <div className={styles.list_more_wraper}>
-          <div className={styles.list_more}>查看更多</div>
+          <div data-link={link} className={styles.list_more} onClick={goLink}>查看更多</div>
         </div>
     </div>
   );

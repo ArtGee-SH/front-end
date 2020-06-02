@@ -1,4 +1,6 @@
 
+import { useCallback } from 'react';
+import router from 'umi/router';
 
 import { v4 as uuidv4 } from 'uuid';
 
@@ -11,6 +13,10 @@ import styles from './style.less';
 
 const ModRealTime = () => {
 
+  const goPage = useCallback((e) => {
+    const { page } = e.target.dataset;
+    router.push(page);
+  }, []);
 
   const UserList = new Array(4).fill(1).map(i => {
     return {
@@ -31,10 +37,10 @@ const ModRealTime = () => {
   return (
     <div className={styles.mod_realtime}>
       <div className={styles.user_list}>
-        <div className={styles.list_title}>活跃藏家</div>
+        <div className={styles.list_title} data-page="/directory?t=1" onClick={goPage}>活跃藏家</div>
         <CmptList items={UserList} />
         <div className={styles.divider} />
-        <div className={styles.list_title}>热门创作者</div>
+        <div className={styles.list_title} data-page="/directory?t=2" onClick={goPage}>热门创作者</div>
         <CmptList items={UserList} />
       </div>
       <CmptMarketList className={styles.market_list} items={dataSource} />

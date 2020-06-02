@@ -11,7 +11,6 @@ import { useEffect } from 'react';
 const pathesWithoutPaddingTop = ['/'];
 
 function BasicLayout(props) {
-
   const { pathname } = props.location;
 
   const _withoutPaddingTop = pathesWithoutPaddingTop.some(v => v === pathname);
@@ -19,27 +18,43 @@ function BasicLayout(props) {
 
   useEffect(() => {
     setTimeout(() => {
-      const head = document.querySelector('#app_head');
-    const foot = document.querySelector('#app_foot');
-    const body = document.querySelector('#app_body');
-    body.style.minHeight = (window.screen.availHeight - head.getClientRects()[0].height - 2 * foot.getClientRects()[0].height + 2) + 'px'
-    console.log(body.style.minHeight)
-    }, 100)
+      try {
+        const head = document.querySelector('#app_head');
+        const foot = document.querySelector('#app_foot');
+        const body = document.querySelector('#app_body');
+        body.style.minHeight =
+          window.screen.availHeight -
+          head.getClientRects()[0].height -
+          2 * foot.getClientRects()[0].height +
+          2 +
+          'px';
+        console.log(body.style.minHeight);
+      } catch (e) {
+        console.log('err', e);
+      }
+    }, 100);
   }, []);
 
   return (
     <Web3InjectProvider>
-        <PolkadotProvider>
-          <AccountsProvider>
-            <BalanceProvider>
-              <div className={styles.app_wrapper}>
-                <Head {...props} />
-                <div id="app_body" className={`${styles.app_body} ${_withoutPaddingTop ? styles.app_body_padding_top0: ''}`}>{props.children}</div>
-                <Foot />
+      <PolkadotProvider>
+        <AccountsProvider>
+          <BalanceProvider>
+            <div className={styles.app_wrapper}>
+              <Head {...props} />
+              <div
+                id="app_body"
+                className={`${styles.app_body} ${
+                  _withoutPaddingTop ? styles.app_body_padding_top0 : ''
+                }`}
+              >
+                {props.children}
               </div>
-            </BalanceProvider>
-          </AccountsProvider>
-        </PolkadotProvider>
+              <Foot />
+            </div>
+          </BalanceProvider>
+        </AccountsProvider>
+      </PolkadotProvider>
     </Web3InjectProvider>
   );
 }

@@ -21,8 +21,11 @@ export default {
       title: 'cryptoindus-front-end',
       dll: true,
       locale: {
-        enable: true,
-        default: 'en-US',
+        default: 'zh-CN',
+        antd: false,
+        title: false,
+        baseNavigator: true,
+        baseSeparator: '-',
       },
       routes: {
         exclude: [

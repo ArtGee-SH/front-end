@@ -1,0 +1,119 @@
+
+
+@import '~@theme';
+
+.info_title{
+  font-family: PingFangSC-Semibold;
+  font-size: 48 * @px_base;
+  color: #3B3B3B;
+}
+.info_subtitle{
+  font-family: PingFangSC-Semibold;
+  font-size: 28 * @px_base;
+  color: #3B3B3B;
+}
+.info_desc{
+  font-family: PingFangSC-Ultralight;
+  font-size: 30 * @px_base;
+  color: #212121;
+}
+
+.part_info{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: 45 * @px_base;
+  p{
+    margin: 0;
+    line-height: 200%;
+  }
+  .img_wrapper{
+    width: 50%;
+    img{
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+  .info_wrapper{
+    flex: 1;
+    padding-left: 88 * @px_base;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+
+.start_btn{
+  cursor: pointer;
+  display: inline-block;
+  background: #FFFFFF;
+  box-shadow: 0 16 * @px_base 17 * @px_base 0 #E5E5E5;
+  padding: 22 * @px_base 118 * @px_base;
+  margin-top: 60 * @px_base;
+  border-bottom: 1px solid  #212421;;
+}
+
+.his_title{
+  font-family: PingFangSC-Ultralight;
+  font-size: 48 * @px_base;
+  color: #3B3B3B;
+  margin-bottom: 28 * @px_base;
+  margin-top: 88 * @px_base;
+}
+
+.his_row + .his_row{
+  margin-top: 24 * @px_base;
+}
+.his_row{
+  width: 50%;
+  border-bottom: 1px solid #E9E9E9;
+  padding-bottom: 10 * @px_base;
+  span + span{
+    margin-left: 8 * @px_base;
+  }
+}
+
+.his_u{
+  font-family: PingFangSC-Semibold;
+  font-size: 16 * @px_base;
+  color: #212121;
+}
+.his_a {
+  font-family: PingFangSC-Regular;
+  font-size: 16 * @px_base;
+  color: #212121;
+}
+
+.time{
+  font-family: PingFangSC-Regular;
+  font-size: 12 * @px_base;
+  color: #B7B7B7;
+  margin-top: 4 * @px_base;
+}
+
+.btm_img{
+  width: 100%;
+  // height: 47;
+  object-fit: cover;
+}
+
+.part_his{
+  margin-bottom: 88 * @px_base;
+
+}
+
+.part_btm{
+  position: relative;
+  .btn_txt{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: fade(#363636, 80);
+    font-family: PingFangSC-Regular;
+    font-size: 30 * @px_base;
+    color: #F0F0F0;
+  }
+}

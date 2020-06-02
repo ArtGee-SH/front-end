@@ -1,5 +1,5 @@
 
-import { useCallback } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import router from 'umi/router';
 
 import Pagination from '@/components/Pagination';
@@ -17,7 +17,16 @@ const Filters = [{
   code: 'b'
 }]
 
-const ModuleDirectory = () => {
+const ModuleDirectory = (props) => {
+
+  const { query } = props.location;
+  const [ curType, updateCurType ] =  useState('a');
+
+  useEffect(() => {
+    if(query.t && query.t == 2) {
+      updateCurType('b');
+    }
+  }, []);
 
   const list = new Array(10).fill(1).map((v, idx) => {
     return {
@@ -26,12 +35,12 @@ const ModuleDirectory = () => {
   });
 
   const goDirectoryDetail = useCallback((e, item) => {
-    router.push(`/directory/${item.id}`);
+    router.push(`/user/${item.id}`);
   }, []);
 
   return (
     <div className={styles.mod_directory}>
-      <TabFilters value="b" items={Filters} className={styles.tab_filters} />
+      <TabFilters value={curType} items={Filters} className={styles.tab_filters} />
       <div className={styles.list_wrapper}>
         {list.map(li => {
           return (

@@ -11,6 +11,9 @@ import InfoBlock from './InfoBlock';
 import InfoImage1 from '@/assets/info_img1.png';
 import InfoImage2 from '@/assets/info_img2.png';
 
+import BannerEn from '@/assets/home/banner_en.png';
+import BannerCn from '@/assets/home/banner_cn.png';
+
 import { getRandomImage } from '@/utils/tools';
 
 import styles from './style.less';
@@ -33,7 +36,7 @@ const dataSourceRea2 = new Array(3).fill(1).map((v, idx) => {
 const ModHome = () => {
   return (
     <div className={styles.mod_home}>
-      <div className={styles.banner}>
+      <div className={styles.banner} style={{ backgroundImage: `url('${BannerCn}')`}}>
         <div className={styles.banner_title}>
           {/* <div>传统艺术是个别人的游戏</div>
           <div>加密艺术是所有人的游戏</div> */}
@@ -42,8 +45,8 @@ const ModHome = () => {
         {/* <div className={styles.banner_tip}>即刻探索</div> */}
       </div>
       <div className={styles.content}>
-        <div className={styles.row}>{ListBlock(dataSourceReal, '实时交易')}</div>
-        <div className={styles.row}>{ListBlock(dataSourceRea2, '热门作品')}</div>
+        <div className={styles.row}>{ListBlock(dataSourceRea2, '热门作品', '/market')}</div>
+        <div className={styles.row}>{ListBlock(dataSourceReal, '实时交易', '/market/realtime')}</div>
         <div className={styles.row}>
           {InfoBlock({
             title: '聪明的艺术藏家',
@@ -58,7 +61,8 @@ const ModHome = () => {
             image: InfoImage1,
             buttons: [
               {
-                text: '市场走起',
+                text: '开始收集',
+                link: '/wallet'
               },
             ],
           })}
@@ -80,7 +84,8 @@ const ModHome = () => {
                   className: styles.give,
                 },
                 {
-                  text: '市场走起',
+                  text: '创作变现',
+                  link: '/apply'
                 },
               ],
             },

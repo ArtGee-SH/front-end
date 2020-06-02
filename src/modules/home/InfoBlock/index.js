@@ -1,12 +1,21 @@
 
-import { useMemo } from 'react';
+import { useMemo, useCallback } from 'react';
+import router from 'umi/router';
 import classnames from 'classnames';
+
 
 import styles from './style.less';
 
 const InfoBlock = (info, imageLeft = false) => {
 
   const { title, contents, buttons, image } = info;
+
+  const goLink = useCallback((e)=>{
+    const { link } = e.target.dataset;
+    if(link) {
+      router.push(link);
+    }
+  }, []);
 
   const TextPart = useMemo(() => {
     return (
@@ -21,7 +30,7 @@ const InfoBlock = (info, imageLeft = false) => {
           }</div>
           <div className={styles.info_btns}>
             {buttons.map((btn, indx) => {
-              return <span className={classnames(styles.info_btn, btn.className || '')} key={indx}>{btn.text}</span>
+              return <span data-link={btn.link} onClick={goLink} className={classnames(styles.info_btn, btn.className || '')} key={indx}>{btn.text}</span>
             })}
           </div>
       </div>
@@ -33,7 +42,7 @@ const InfoBlock = (info, imageLeft = false) => {
         <div className={styles.info_title}>
             &nbsp;&nbsp;
           </div>
-        <img className={styles.img} src={image} />
+        <img className={styles.img} src={image} alt="" />
       </div>
     );
   }, [image]);
