@@ -49,7 +49,7 @@ const Head = (props) => {
 
   const { pathname } = props.location
   const [curtab, updateCurTab] = useState('');
-  const { setLocale, getLocale } = useLocale();
+  const { updateLang, lang } = useLocale();
 
   useEffect(() => {
     const _curTab = Tabs.filter(v => v.url && v.url === pathname);
@@ -60,14 +60,14 @@ const Head = (props) => {
   const onClick = useCallback((e) => {
     const url = (e.target.dataset || {}).url;
     if(url === '__lang__') {
-      const nextLocale = getLocale() === 'zh-CN' ? 'en-US' : 'zh-CN';
-      setLocale(nextLocale);
+      const nextLocale = lang === 'zh-CN' ? 'en-US' : 'zh-CN';
+      updateLang(nextLocale);
       return;
     }
     if(url) {
       router.push(url);
     }
-  }, []);
+  }, [lang]);
   return (
     <div id="app_head" className={styles.head_wrapper}>
       <ConnectionPolkadotNotice />

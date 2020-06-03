@@ -2,6 +2,7 @@ import { Web3InjectProvider } from '@/context/web3inject';
 import { PolkadotProvider } from '@/context/polkadot';
 import { AccountsProvider } from '@/context/accounts';
 import { BalanceProvider } from '@/context/balance';
+import { LocaleProvider } from '@/context/locale';
 import Head from '@/components/Head';
 import Foot from '@/components/Foot';
 
@@ -40,6 +41,7 @@ function BasicLayout(props) {
       <PolkadotProvider>
         <AccountsProvider>
           <BalanceProvider>
+            <LocaleProvider>
             <div className={styles.app_wrapper}>
               <Head {...props} />
               <div
@@ -52,6 +54,7 @@ function BasicLayout(props) {
               </div>
               <Foot />
             </div>
+            </LocaleProvider>
           </BalanceProvider>
         </AccountsProvider>
       </PolkadotProvider>

@@ -22,8 +22,6 @@ export default {
       dll: true,
       locale: {
         default: 'zh-CN',
-        antd: false,
-        title: false,
         baseNavigator: true,
         baseSeparator: '-',
       },

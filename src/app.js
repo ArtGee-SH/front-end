@@ -1,3 +1,5 @@
+
+import React from 'react';
 export const dva = {
   config: {
     onError(err) {
@@ -6,3 +8,9 @@ export const dva = {
     },
   },
 };
+
+// export function rootContainer(container) {
+
+//   const DvaContainer = require('@tmp/DvaContainer').default;
+//   return React.createElement(DvaContainer, null, container);
+// }
