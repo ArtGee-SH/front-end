@@ -1,6 +1,7 @@
 
 import { useCallback } from 'react';
 // import { getLocale } from 'umi';
+import useLocale from '@/hooks/useLocale';
 
 function getStreamReader(file, chunkSize = 1024 * 1024) {
   let reader = new FileReader();
@@ -32,10 +33,12 @@ export default () => {
       }
     })();
   }, []);
+  const { _t } = useLocale();
   return (
 
     <div>
       <input id="input" type="file" onChange={onSelectFile} />
+  <span>{_t('index.start')}</span>
     </div>
 
   );

@@ -1,3 +1,3 @@
 export default {
-  'index.start': 'Getting Started',
+  'index.start': '立即开始',
 }
