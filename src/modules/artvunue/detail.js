@@ -8,6 +8,7 @@ import ArtImag1 from '@/assets/detail-1.png';
 import ArtImag2 from '@/assets/detail-2.png';
 
 import styles from './style.less';
+import { _t } from '@/utils/lang';
 
 
 const userinfo = {
@@ -50,14 +51,14 @@ const ArtDetail = () => {
               </div>
               <div>
                 <div className={styles.start_btn}>
-                  开始收集
+                  {_t('p.start.collectiing')}
                 </div>
               </div>
             </div>
         </div>
         <div className={styles.part_his}>
           <div className={styles.his_title}>
-            竞价历史
+            {_t('p.history')}
           </div>
           <div className={styles.his_list}>
             <div className={styles.his_row}>
@@ -68,24 +69,24 @@ const ArtDetail = () => {
             </div>
             <div className={styles.his_row}>
               <span className={styles.his_u}>酒鬼</span>
-              <span className={styles.his_a}>放出价格</span>
+              <span className={styles.his_a}>{_t('p.bidaprice')}</span>
               <span className={styles.his_u}>19990 DUS</span>
               <div className={styles.time}>1.4小时前</div>
             </div>
             <div className={styles.his_row}>
               <span className={styles.his_u}>秦智倪倪</span>
-              <span className={styles.his_a}>放出价格</span>
+              <span className={styles.his_a}>{_t('p.bidaprice')}</span>
               <span className={styles.his_u}>19990 DUS</span>
               <div className={styles.time}>3小时前</div>
             </div>
             <div className={styles.his_row}>
               <span className={styles.his_u}>三林西</span>
-              <span className={styles.his_a}>放出价格</span>
+              <span className={styles.his_a}>{_t('p.bidaprice')}</span>
               <span className={styles.his_u}>19990 DUS</span>
               <div className={styles.time}>12小时前</div>
             </div>
             <div className={styles.his_row}>
-              <span className={styles.his_a}>创作者</span>
+              <span className={styles.his_a}>{_t('p.creator')}</span>
               <span className={styles.his_u}>大悲宇宙</span>
               <div className={styles.time}>4年前</div>
             </div>

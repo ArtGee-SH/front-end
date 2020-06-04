@@ -10,10 +10,10 @@ import ListItem from './ListItem';
 import styles from './style.less'
 
 const Filters = [{
-  name: '收藏家',
+  name: 'user.p.collector',
   code: 'a'
 }, {
-  name: '艺术家',
+  name: 'user.p.artist',
   code: 'b'
 }]
 
@@ -28,9 +28,10 @@ const ModuleDirectory = (props) => {
     }
   }, []);
 
-  const list = new Array(10).fill(1).map((v, idx) => {
+  const list = new Array(1).fill(1).map((v, idx) => {
     return {
       id: idx,
+      // name: ''
     }
   });
 
@@ -48,7 +49,9 @@ const ModuleDirectory = (props) => {
           );
         })}
       </div>
-      <Pagination count={10} showFirstButton showLastButton />
+      {
+        list.length > 10 ? <Pagination count={list.length} showFirstButton showLastButton /> : null
+      }
     </div>
   );
 }

@@ -1,6 +1,9 @@
 import { useState, useCallback, useEffect } from 'react';
 
 import classnames from 'classnames';
+
+import { _t } from '@/utils/lang';
+
 import styles from './style.less';
 
 const noop = () => {};
@@ -13,10 +16,8 @@ const TabFilters = ({ className, items, onChange = noop, value, size = 'middle' 
   }, []);
 
   useEffect(() => {
-    if(value !== activeFilter) {
-      updateActiveFilter(value);
-    }
-  }, [value, activeFilter]);
+    updateActiveFilter(value);
+  }, []);
 
   const handleFilterClick = useCallback(
     e => {
@@ -45,7 +46,7 @@ const TabFilters = ({ className, items, onChange = noop, value, size = 'middle' 
             key={item.code}
             onClick={handleFilterClick}
           >
-            {item.name}
+            {_t(item.name)}
           </span>
         );
       })}

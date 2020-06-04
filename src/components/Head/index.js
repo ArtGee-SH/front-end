@@ -7,6 +7,7 @@ import router from 'umi/router';
 import ConnectionPolkadotNotice from '@/components/ConnectionPolkadotNotice';
 
 import useLocale from '@/hooks/useLocale';
+import { _t } from '@/utils/lang';
 
 import Logo from '@/assets/logo.png';
 
@@ -14,32 +15,32 @@ import styles from './style.less';
 
 const Tabs = [
   {
-    name: '首页',
+    name: 'head.home',
     url: '/',
     code: 'home',
   },
   {
-    name: '玩法',
-    url: '/play',
+    name: 'head.strategy',
+    url: '/strategy',
     code: 'play',
   },
   {
-    name: '市集',
+    name: 'head.market',
     url: '/market',
     code: 'market',
   },
   {
-    name: '名录',
+    name: 'head.directory',
     url: '/directory',
     code: 'directory',
   },
   {
-    name: '注册',
+    name: 'head.signin',
     url: '/wallet',
     code: 'wallet',
   },
   {
-    name: '中/En',
+    name: 'head.lang',
     url: '__lang__',
     code: 'lang',
   },
@@ -84,7 +85,7 @@ const Head = (props) => {
                 onClick={onClick}
                 key={tab.code}
               >
-                {tab.name}
+                {_t(tab.name)}
               </div>
             );
           })}

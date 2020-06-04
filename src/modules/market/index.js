@@ -18,26 +18,26 @@ import styles from './style.less';
 
 const TYPES = [
   {
-    name: '已有定价',
+    name: 'type.priced',
     code: 'Priced',
   },
   {
-    name: '接受加价',
+    name: 'type.openbid',
     code: 'Negotiated',
   },
   {
-    name: '未开封',
+    name: 'type.ownedbycreator',
     code: 'New',
   },
 ];
 
 const SORTERS = [
   {
-    name: '从高到低',
+    name: 'sort.highest',
     code: 'decrease',
   },
   {
-    name: '从低到高',
+    name: 'sort.lowest',
     code: 'increase',
   },
 ];

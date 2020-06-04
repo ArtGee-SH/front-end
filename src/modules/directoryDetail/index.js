@@ -7,14 +7,15 @@ import { getRandomImage } from '@/utils/tools';
 
 import styles from './style.less';
 import { useMemo } from 'react';
+import { _t } from '@/utils/lang';
 
 const Filters = [
   {
-    name: '收藏',
+    name: 'p.cc',
     code: 'a',
   },
   {
-    name: '创作',
+    name: 'p.creation',
     code: 'b',
   },
 ];
@@ -53,20 +54,20 @@ const ModDirectoryDetail = () => {
             <img className={styles.thumbnail} src={imageUrl} alt="" />
           </div>
           <div className={styles.col_info}>
-            <div className={styles.col_header}>露露</div>
-            <div className={styles.col_footer}>asdf@www.com</div>
+            <div className={styles.col_header}>Alice</div>
+            <div className={styles.col_footer}>alice@gmail.com</div>
           </div>
           <div className={styles.col_num}>
-            <div className={styles.col_header}>收集数</div>
+            <div className={styles.col_header}>{_t('num.collection')}</div>
             <div className={styles.col_footer}>90</div>
           </div>
           <div className={styles.col_num}>
-            <div className={styles.col_header}>创作数</div>
+            <div className={styles.col_header}>{_t('num.creation')}</div>
             <div className={styles.col_footer}>90</div>
           </div>
         </div>
         <div className={styles.part_right}>
-          <div className={styles.i_title}>adfsdf.asdf.cd</div>
+          <div className={styles.i_title}>alice.gt.com</div>
           <div className={styles.i_content}>
             我对加密艺术的理解是任何人都能玩的一种游戏，而我的创作风趣是趋于抽象感的印象派，我喜欢用特殊的材质，欢迎各位在微博与我联系。或者在CI官方群。
           </div>

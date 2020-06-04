@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 
 import InputBase from '@material-ui/core/InputBase';
 import Divider from '@material-ui/core/Divider';
@@ -7,6 +7,11 @@ import IconButton from '@material-ui/core/IconButton';
 import Paper from '@material-ui/core/Paper';
 import ListBlock from './ListBlock';
 import InfoBlock from './InfoBlock';
+
+// import LocaleContext from '@/context/locale';
+import useLocale from '@/hooks/useLocale';
+
+import { _t } from '@/utils/lang';
 
 import InfoImage1 from '@/assets/info_img1.png';
 import InfoImage2 from '@/assets/info_img2.png';
@@ -33,35 +38,42 @@ const dataSourceRea2 = new Array(3).fill(1).map((v, idx) => {
   };
 });
 
+const bannerMap = {
+  'zh-CN': BannerCn,
+  'en-US': BannerEn
+}
+
 const ModHome = () => {
+  const { getLocale } = useLocale();
+  const lang = getLocale();
   return (
     <div className={styles.mod_home}>
-      <div className={styles.banner} style={{ backgroundImage: `url('${BannerCn}')`}}>
+      <div className={styles.banner} style={{ backgroundImage: `url('${bannerMap[lang] || BannerEn}')`}}>
         <div className={styles.banner_title}>
           {/* <div>传统艺术是个别人的游戏</div>
           <div>加密艺术是所有人的游戏</div> */}
-          <div className={styles.banner_tip}>即刻探索</div>
+          <div className={styles.banner_tip}>{_t('p.explore')}</div>
         </div>
         {/* <div className={styles.banner_tip}>即刻探索</div> */}
       </div>
       <div className={styles.content}>
-        <div className={styles.row}>{ListBlock(dataSourceRea2, '热门作品', '/market')}</div>
-        <div className={styles.row}>{ListBlock(dataSourceReal, '实时交易', '/market/realtime')}</div>
+        <div className={styles.row}>{ListBlock(dataSourceRea2, _t('list.popular'), '/market')}</div>
+        <div className={styles.row}>{ListBlock(dataSourceReal, _t('list.realtime'), '/market/realtime')}</div>
         <div className={styles.row}>
           {InfoBlock({
-            title: '聪明的艺术藏家',
+            title: _t('user.collector'),
             contents: [
-              '拍到你倾慕的作品，作品可以被复制，',
-              '但加密技术能让这件作品永远属于你，',
-              '它会永远存在在你的钱包里。',
-              '当然你也可以以更高价卖出。',
-              '去中心化的加密艺术世界，',
-              '向世界各地的人展示你的藏品',
+              _t('p.para1.1'),
+              _t('p.para1.2'),
+              _t('p.para1.3'),
+              _t('p.para1.4'),
+              _t('p.para1.5'),
+              _t('p.para1.6'),
             ],
             image: InfoImage1,
             buttons: [
               {
-                text: '开始收集',
+                text: _t('p.start.collection'),
                 link: '/wallet'
               },
             ],
@@ -70,21 +82,21 @@ const ModHome = () => {
         <div className={styles.row}>
           {InfoBlock(
             {
-              title: '亲爱的创作者',
+              title: _t('user.artist'),
               contents: [
-                '是否多年的创作却有IP瓶颈 ？',
-                '互联网时代不能给你的，区块链可以。',
-                '才华不该被埋没，不是吗 ？',
-                '坚定艺术梦想',
+                _t('p.para2.1'),
+                _t('p.para2.2'),
+                _t('p.para2.3'),
+                _t('p.para2.4')
               ],
               image: InfoImage2,
               buttons: [
                 {
-                  text: '放弃',
+                  text: _t('p.abandan'),
                   className: styles.give,
                 },
                 {
-                  text: '创作变现',
+                  text: _t('p.realization'),
                   link: '/apply'
                 },
               ],
@@ -93,14 +105,14 @@ const ModHome = () => {
           )}
         </div>
         <div className={`${styles.row} ${styles.row_sub}`}>
-          <div className={styles.row_title}>订阅新奇</div>
+          <div className={styles.row_title}>{_t('p.subscribe.new')}</div>
           <Paper className={styles.subscribe}>
             <InputBase
               className={styles.input}
               placeholder="Email"
               inputProps={{ 'aria-label': 'Email' }}
             />
-            <div className={styles.addon}>订阅</div>
+            <div className={styles.addon}>{_t('p.subscribe')}</div>
           </Paper>
         </div>
       </div>

@@ -21,6 +21,7 @@ export default () => {
   return {
     updateLang,
     lang,
+    getLocale: _locale.getLocale,
     _t: _locale._t,
   };
 };

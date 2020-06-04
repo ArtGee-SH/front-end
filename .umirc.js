@@ -43,5 +43,5 @@ export default {
     '@': path.join(__dirname, 'src/'),
     '@theme': path.join(__dirname, 'src/const/theme.less'),
   },
-  publicPath: '/'
+  publicPath: '/',
 }

@@ -4,6 +4,7 @@ import router from 'umi/router';
 
 import CardItem from '@/components/CardItem';
 
+import { _t } from '@/utils/lang';
 
 import styles from './style.less';
 
@@ -27,7 +28,7 @@ const ListBlock = (list, title, link) => {
           })}
         </div>
         <div className={styles.list_more_wraper}>
-          <div data-link={link} className={styles.list_more} onClick={goLink}>查看更多</div>
+        <div data-link={link} className={styles.list_more} onClick={goLink}>{_t('list.more')}</div>
         </div>
     </div>
   );

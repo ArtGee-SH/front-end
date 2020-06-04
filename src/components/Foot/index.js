@@ -1,4 +1,5 @@
 import styles from './style.less';
+import { _t } from '@/utils/lang';
 
 const Foot = () => {
   return (
@@ -11,7 +12,7 @@ const Foot = () => {
         </div>
       </div>
       <div className={styles.contact}>
-      合作请洽 feliciache@163.com
+       {_t('p.contact')}
       </div>
     </div>
   );

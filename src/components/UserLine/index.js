@@ -2,6 +2,7 @@
 
 
 import styles from './style.less';
+import { _t } from '@/utils/lang';
 
 
 const UserLine = (props) => {
@@ -22,11 +23,11 @@ const UserLine = (props) => {
             <div className={styles.col_footer}>{email}</div>
           </div>
           <div className={styles.col_num}>
-            <div className={styles.col_header}>收集数</div>
+            <div className={styles.col_header}>{_t('num.collection')}</div>
             <div className={styles.col_footer}>{collection}</div>
           </div>
           <div className={styles.col_num}>
-            <div className={styles.col_header}>创作数</div>
+            <div className={styles.col_header}>{_t('num.creation')}</div>
             <div className={styles.col_footer}>{produce}</div>
           </div>
         </div>

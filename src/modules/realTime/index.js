@@ -10,6 +10,7 @@ import CmptMarketList from './components/MarketList';
 import { getRandomImage } from '@/utils/tools';
 
 import styles from './style.less';
+import { _t } from '@/utils/lang';
 
 const ModRealTime = () => {
 
@@ -37,10 +38,10 @@ const ModRealTime = () => {
   return (
     <div className={styles.mod_realtime}>
       <div className={styles.user_list}>
-        <div className={styles.list_title} data-page="/directory?t=1" onClick={goPage}>活跃藏家</div>
+  <div className={styles.list_title} data-page="/directory?t=1" onClick={goPage}>{_t('user.topcollecor')}</div>
         <CmptList items={UserList} />
         <div className={styles.divider} />
-        <div className={styles.list_title} data-page="/directory?t=2" onClick={goPage}>热门创作者</div>
+        <div className={styles.list_title} data-page="/directory?t=2" onClick={goPage}>{_t('user.trendingartist')}</div>
         <CmptList items={UserList} />
       </div>
       <CmptMarketList className={styles.market_list} items={dataSource} />
