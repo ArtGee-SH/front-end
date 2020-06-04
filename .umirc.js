@@ -19,6 +19,9 @@ export default {
       dva: true,
       dynamicImport: { webpackChunkName: true },
       title: 'cryptoindus-front-end',
+      links: [
+        { rel: 'icon', href: '<%= PUBLIC_PATH %>favico.png' },
+      ],
       dll: true,
       locale: {
         default: 'zh-CN',
