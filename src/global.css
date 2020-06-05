@@ -20,6 +20,9 @@ body {
 
 
 .app-en .en-app-font{
-  font-family: Montserrat PingFangSC !important;
-  font-weight: 300!important;
+  font-weight: 300;
+}
+.app-en * {
+  font-family: Montserrat,PingFangSC !important;
+  font-weight: 300;
 }
