@@ -61,7 +61,7 @@ const ModHome = () => {
         <div className={styles.row}>{ListBlock(dataSourceReal, _t('list.realtime'), '/market/realtime')}</div>
         <div className={styles.row}>
           {InfoBlock({
-            title: _t('user.collector'),
+            title:  _t('user.artist'),
             contents: [
               _t('p.para1.1'),
               _t('p.para1.2'),
@@ -82,7 +82,7 @@ const ModHome = () => {
         <div className={styles.row}>
           {InfoBlock(
             {
-              title: _t('user.artist'),
+              title:_t('user.collector'),
               contents: [
                 _t('p.para2.1'),
                 _t('p.para2.2'),
