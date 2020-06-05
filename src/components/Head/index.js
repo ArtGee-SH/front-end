@@ -46,6 +46,11 @@ const Tabs = [
   },
 ];
 
+const LangClassMap = {
+  'zh-CN': 'app-cn',
+  'en-US': 'app-en',
+}
+
 const Head = (props) => {
 
   const { pathname } = props.location
@@ -57,12 +62,14 @@ const Head = (props) => {
     if(_curTab.length){
       updateCurTab(_curTab[0].code)
     }
-  }, [pathname])
+  }, [pathname]);
   const onClick = useCallback((e) => {
     const url = (e.target.dataset || {}).url;
     if(url === '__lang__') {
       const nextLocale = lang === 'zh-CN' ? 'en-US' : 'zh-CN';
       updateLang(nextLocale);
+      document.body.classList.remove(LangClassMap[lang]);
+      document.body.classList.add(LangClassMap[nextLocale]);
       return;
     }
     if(url) {

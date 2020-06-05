@@ -1,5 +1,7 @@
 
 
+
+import classnames from 'classnames';
 import UserLine from '@/components/UserLine';
 
 
@@ -35,7 +37,7 @@ const ArtDetail = () => {
               <div>
                 <div className={styles.info_title}>所向披靡#意志</div>
                 <div className={styles.info_subtitle}>Edition 1 of 1</div>
-                <div className={styles.info_desc}>
+                <div className={classnames(styles.info_desc)}>
                   <p>我将永远忠于自己，</p>
                   <p>披星戴月奔向理想和自由。</p>
                   <p>我将永远忠于自己，</p>
@@ -57,7 +59,7 @@ const ArtDetail = () => {
             </div>
         </div>
         <div className={styles.part_his}>
-          <div className={styles.his_title}>
+          <div className={classnames(styles.his_title, 'en-app-font')}>
             {_t('p.history')}
           </div>
           <div className={styles.his_list}>

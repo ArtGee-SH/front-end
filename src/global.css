@@ -17,3 +17,9 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+
+.app-en .en-app-font{
+  font-family: Montserrat PingFangSC !important;
+  font-weight: 300!important;
+}

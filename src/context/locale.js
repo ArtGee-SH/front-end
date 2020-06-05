@@ -1,10 +1,16 @@
 
 import React, { useState, useCallback, useMemo, useEffect } from 'react';
-import { useSelector } from 'dva';
-import { formatMessage, setLocale, getLocale } from 'umi-plugin-react/locale';
+// import { useSelector } from 'dva';
+import { setLocale, getLocale } from 'umi-plugin-react/locale';
 
 
 const defaultLang = 'zh-CN';
+
+const LangClassMap = {
+  'zh-CN': 'app-cn',
+  'en-US': 'app-en',
+}
+
 
 export const LocaleContext = React.createContext({
   lang: defaultLang,
@@ -23,7 +29,9 @@ export const LocaleProvider = (props) => {
 
   // 初始化，同步已有的数据
   useEffect(() => {
-    updateLang(getLocale() || defaultLang);
+    const lang = getLocale() || defaultLang;
+    updateLang(lang);
+    document.body.classList.add(LangClassMap[lang]);
   }, []);
 
   return (

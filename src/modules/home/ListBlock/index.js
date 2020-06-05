@@ -1,5 +1,6 @@
 
 import { useCallback } from 'react';
+import classnames from 'classnames';
 import router from 'umi/router';
 
 import CardItem from '@/components/CardItem';
@@ -19,7 +20,7 @@ const ListBlock = (list, title, link) => {
   }, []);
   return (
     <div className={styles.list_block}>
-        <div className={styles.list_title}>{title}</div>
+        <div className={classnames(styles.list_title, 'en-app-font')}>{title}</div>
         <div className={styles.list_wrapper}>
           {list.map(li => {
             return <div className={styles.list_item} key={li.id}>

@@ -23,7 +23,7 @@ const InfoBlock = (info, imageLeft = false) => {
           <div className={styles.info_title}>
             {title}
           </div>
-          <div className={styles.info_content}>{
+          <div className={classnames(styles.info_content, 'en-app-font')}>{
             contents.map((cnt, idx) => {
             return <div key={idx} className={styles.cnt}>{cnt}</div>
             })

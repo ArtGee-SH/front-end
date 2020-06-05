@@ -1,8 +1,8 @@
-import { useEffect, useContext } from 'react';
-
+// import { useEffect, useContext } from 'react';
+import classnames from 'classnames';
 import InputBase from '@material-ui/core/InputBase';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
+// import Divider from '@material-ui/core/Divider';
+// import IconButton from '@material-ui/core/IconButton';
 // import DirectionsIcon from '@material-ui/icons/Directions';
 import Paper from '@material-ui/core/Paper';
 import ListBlock from './ListBlock';
@@ -105,7 +105,7 @@ const ModHome = () => {
           )}
         </div>
         <div className={`${styles.row} ${styles.row_sub}`}>
-          <div className={styles.row_title}>{_t('p.subscribe.new')}</div>
+          <div className={classnames(styles.row_title, 'en-app-font')}>{_t('p.subscribe.new')}</div>
           <Paper className={styles.subscribe}>
             <InputBase
               className={styles.input}

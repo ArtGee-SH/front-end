@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import { Web3InjectProvider } from '@/context/web3inject';
 import { PolkadotProvider } from '@/context/polkadot';
 import { AccountsProvider } from '@/context/accounts';
@@ -7,7 +9,6 @@ import Head from '@/components/Head';
 import Foot from '@/components/Foot';
 
 import styles from './index.less';
-import { useEffect } from 'react';
 
 const pathesWithoutPaddingTop = ['/'];
 
